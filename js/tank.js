@@ -37,12 +37,18 @@ class Tank extends Actor {
     });
   }
 
+  addTrack() {
+    //this.stage.addObject(new Track(this.x, this.y));
+  }
+
   update() {
     if (this.inputHandler.keys[83]) {
+      this.addTrack();
       this.y -= this.vy * Math.cos(this.angle * Math.PI / 180);
       this.x += this.vx * Math.sin(this.angle * Math.PI / 180);
     };
     if (this.inputHandler.keys[87]) {
+      this.addTrack();
       this.y += this.vy * Math.cos(this.angle * Math.PI / 180);
       this.x -= this.vx * Math.sin(this.angle * Math.PI / 180);
     };
