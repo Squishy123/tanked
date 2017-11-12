@@ -21,10 +21,15 @@ class Track extends Actor {
     });
 
     let obj = this;
-  //  this.stage.checkCollisions(this).forEach(function(e) {
-      //  if (e instanceof Track) {
-      //      this.stage.removeObject(obj);
-      //    }
-    //});
+    if (this.stage)
+      this.stage.checkCollisions(this).forEach(function(e) {
+        if (e instanceof Track) {
+          if (obj.stage) {
+            obj.stage.removeObject(obj);
+            obj.stop();
+          }
+        }
+        return;
+      });
   }
 }

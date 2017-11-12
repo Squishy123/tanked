@@ -62,6 +62,10 @@ class Tank extends Actor {
     this.element.style["-ms-transform"] = "rotate(" + this.angle + "deg)";
     this.element.style["-webkit-transform"] = "rotate(" + this.angle + "deg)";
     this.element.style["transform"] = "rotate(" + this.angle + "deg)";
+
+    if (this.inputHandler.keys[13]) {
+      this.stage.addObject(new Bullet(this.x + this.width / 2, this.y + this.height / 2, 5, this.angle));
+    }
   }
 
 
