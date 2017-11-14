@@ -42,6 +42,9 @@ class Tank extends Actor {
   }
 
   update() {
+    let bx = this.x,
+      by = this.y;
+
     if (this.inputHandler.keys[83]) {
       this.addTrack();
       this.y -= this.vy * Math.cos(this.angle * Math.PI / 180);
@@ -54,6 +57,14 @@ class Tank extends Actor {
     };
     if (this.inputHandler.keys[65]) this.angle -= 5;
     if (this.inputHandler.keys[68]) this.angle += 5;
+
+    if (this.x > this.stage.getBounds().width-this.getBounds().width || this.x < 0) {
+      this.x = bx;
+    }
+
+    if (this.y > this.stage.getBounds().height-this.getBounds().height || this.y < 0) {
+      this.y = by;
+    }
     this.setBounds({
       x: this.x,
       y: this.y
