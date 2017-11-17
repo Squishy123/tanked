@@ -14,6 +14,7 @@ class Tank extends Actor {
     this.angle = 0;
 
     this.styleElement({
+      "z-index": "1",
       "background-image": "url('res/tank_blue.png')",
       "background-repeat": "no-repeat",
       "background-size": "auto",
@@ -58,11 +59,11 @@ class Tank extends Actor {
     if (this.inputHandler.keys[65]) this.angle -= 5;
     if (this.inputHandler.keys[68]) this.angle += 5;
 
-    if (this.x > this.stage.getBounds().width-this.getBounds().width || this.x < 0) {
+    if (this.x > this.stage.getBounds().width - this.getBounds().width || this.x < 0) {
       this.x = bx;
     }
 
-    if (this.y > this.stage.getBounds().height-this.getBounds().height || this.y < 0) {
+    if (this.y > this.stage.getBounds().height - this.getBounds().height || this.y < 0) {
       this.y = by;
     }
     this.setBounds({
@@ -70,12 +71,12 @@ class Tank extends Actor {
       y: this.y
     });
 
-    this.element.style["-ms-transform"] = "rotate(" + this.angle + "deg)";
-    this.element.style["-webkit-transform"] = "rotate(" + this.angle + "deg)";
-    this.element.style["transform"] = "rotate(" + this.angle + "deg)";
+    this.element.style["-ms-transform"] = `rotate(${this.angle}deg)`;
+    this.element.style["-webkit-transform"] = `rotate(${this.angle}deg)`;
+    this.element.style["transform"] = `rotate(${this.angle}deg)`;
 
     if (this.inputHandler.keys[13]) {
-      this.stage.addObject(new Bullet(this.x + this.width / 2, this.y + this.height / 2, 5, this.angle));
+      this.stage.addObject(new Bullet(this.x + this.width / 2, this.y + this.height / 2, 10, this.angle));
     }
   }
 

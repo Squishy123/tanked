@@ -20,12 +20,13 @@ class Bullet extends Actor {
     });
 
     this.styleElement({
+      "z-index": "0",
       "background-image": "url('res/bulletBlue1.png')",
       "background-repeat": "no-repeat",
       "background-size": "auto",
-      "-ms-transform": "rotate(0deg);",
-      "-webkit-transform": "rotate(0deg);",
-      "transform": "rotate(0deg);"
+      "-ms-transform": `rotate(${this.angle}deg)`,
+      "-webkit-transform": `rotate(${this.angle}deg)`,
+      "transform": `rotate(${this.angle}deg)`
     });
   }
 
@@ -38,10 +39,13 @@ class Bullet extends Actor {
       y: this.y
     });
 
-    if (this.x - this.initX + this.y - this.initY > 500) this.stage.removeObject(this);
+    if (this.x - this.initX + this.y - this.initY > 500) {
+      console.log("removed")
+      this.stage.removeObject(this)
+    }
 
-    this.element.style["-ms-transform"] = "rotate(" + this.angle + "deg)";
-    this.element.style["-webkit-transform"] = "rotate(" + this.angle + "deg)";
-    this.element.style["transform"] = "rotate(" + this.angle + "deg)";
+    this.element.style["-ms-transform"] = `rotate(${this.angle}deg)`;
+    this.element.style["-webkit-transform"] = `rotate(${this.angle}deg)`;
+    this.element.style["transform"] = `rotate(${this.angle}deg)`;
   }
 }
