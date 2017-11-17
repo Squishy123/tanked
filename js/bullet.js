@@ -28,6 +28,8 @@ class Bullet extends Actor {
       "-webkit-transform": `rotate(${this.angle}deg)`,
       "transform": `rotate(${this.angle}deg)`
     });
+
+    this.lifetime = new Timer();
   }
 
   update() {
@@ -39,9 +41,9 @@ class Bullet extends Actor {
       y: this.y
     });
 
-    if (this.x - this.initX + this.y - this.initY > 500) {
-      console.log("removed")
-      this.stage.removeObject(this)
+    if (this.lifetime.millisecondsElapsed() > 1000) {
+      console.log("Removed");
+      this.stage.removeObject(this);
     }
 
     this.element.style["-ms-transform"] = `rotate(${this.angle}deg)`;

@@ -95,7 +95,6 @@ class Stage extends WebObject {
     this.objectsInStage = this.objectsInStage.filter(function(element) {
       return element != actor;
     });
-    console.log(actor.element);
     this.element.removeChild(actor.element);
   }
 

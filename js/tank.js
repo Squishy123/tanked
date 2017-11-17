@@ -12,6 +12,7 @@ class Tank extends Actor {
     this.y = 200;
 
     this.angle = 0;
+    this.bulletTimer = new Timer();
 
     this.styleElement({
       "z-index": "1",
@@ -75,8 +76,9 @@ class Tank extends Actor {
     this.element.style["-webkit-transform"] = `rotate(${this.angle}deg)`;
     this.element.style["transform"] = `rotate(${this.angle}deg)`;
 
-    if (this.inputHandler.keys[13]) {
+    if (this.inputHandler.keys[13] && (this.bulletTimer.millisecondsElapsed() > 1000)) {
       this.stage.addObject(new Bullet(this.x + this.width / 2, this.y + this.height / 2, 10, this.angle));
+      this.bulletTimer.mark();
     }
   }
 
