@@ -28,7 +28,6 @@ class InputHandler {
     if (events.keyup)
       element.addEventListener("keyup", function(e) {
         obj.input.keys[e.which] = false;
-        e.preventDefault();
       });
     if (events.click) {
       element.addEventListener("click", function(e) {
