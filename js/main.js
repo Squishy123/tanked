@@ -21,6 +21,8 @@ for (let x = 0; x < stage.getBounds().width / 32; x++) {
   }
 }
 
-//Add our tank to the Stage
-let tank = new Tank();
-stage.addObject(tank);
+let enemy = new Enemy();
+stage.addObject(enemy);
+
+let player = new Player();
+stage.addObject(player);

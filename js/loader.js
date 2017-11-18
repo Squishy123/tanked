@@ -11,6 +11,8 @@ require("js/tile.js");
 require("js/track.js");
 require("js/bullet.js");
 require("js/tank.js");
+require("js/player.js");
+require("js/enemy.js");
 require("js/main.js");
 
 function require(src) {
