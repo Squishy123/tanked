@@ -84,6 +84,7 @@ class QuadTree {
    * Return the index of the object given bounds
    **/
   getIndex(bounds) {
+    //console.log(bounds);
     //If index is -1, the object can't fit in any child nodes and must be part of the parent node
     let index = -1;
     let verticalMidPoint = this.bounds.x + (this.bounds.width / 2);

@@ -14,28 +14,24 @@ class Player extends Tank {
   }
 
   update() {
+    super.update();
     let bx = this.x,
       by = this.y;
 
     if (this.inputHandler.keys[83]) {
-      this.addTrack();
       this.y -= this.vy * Math.cos(this.angle * Math.PI / 180);
       this.x += this.vx * Math.sin(this.angle * Math.PI / 180);
     };
     if (this.inputHandler.keys[87]) {
-      this.addTrack();
       this.y += this.vy * Math.cos(this.angle * Math.PI / 180);
       this.x -= this.vx * Math.sin(this.angle * Math.PI / 180);
     };
     if (this.inputHandler.keys[65]) this.angle -= 5;
     if (this.inputHandler.keys[68]) this.angle += 5;
 
-    /**
-    if(this.stage.checkCollisions(this)[0] instanceof Tank) {
-      this.x = bx;
-      this.y = by;
-    }
-    **/
+    //console.log(this.getBounds());
+
+
 
     if (this.x > this.stage.getBounds().width - this.getBounds().width || this.x < 0) {
       this.x = bx;

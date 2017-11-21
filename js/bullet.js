@@ -42,7 +42,6 @@ class Bullet extends Actor {
     });
 
     if (this.lifetime.millisecondsElapsed() > 1000) {
-      console.log("Removed");
       this.stage.removeObject(this);
     }
 

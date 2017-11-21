@@ -12,11 +12,11 @@ let grass = [];
 for (let x = 0; x < stage.getBounds().width / 32; x++) {
   for (let y = 0; y < stage.getBounds().height / 32; y++) {
     let tile = new Tile();
-    stage.addObject(tile);
     tile.setBounds({
       x: x * tile.width,
       y: y * tile.height
     });
+    stage.addObject(tile);
     grass.push(tile);
   }
 }
@@ -26,3 +26,6 @@ stage.addObject(enemy);
 
 let player = new Player();
 stage.addObject(player);
+
+console.log(player.getBounds())
+console.log(stage.checkCollisions(player));

@@ -32,13 +32,14 @@ class Tank extends Actor {
     });
   }
 
-  addTrack() {
-    //this.stage.addObject(new Track(this.x, this.y));
-  }
-
   update() {
+    let bx = this.x,
+      by = this.y;
 
+    //this.stage.checkCollisions(this);
+    //if (this.stage.checkCollisions(this) instanceof Tank) {
+      //this.x = bx;
+      //this.y = by;
+    //}
   }
-
-
 }
